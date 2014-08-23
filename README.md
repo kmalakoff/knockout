@@ -1,4 +1,4 @@
-knockout
+Knockout
 ========
 
-knockout.js, packaged for bower & component.io
+Knockout.js packaged for component.io
