@@ -19,7 +19,7 @@ var DEBUG=true;
     if (typeof require === 'function' && typeof exports === 'object' && typeof module === 'object') {
         // [1] CommonJS/Node.js
         var target = module['exports'] || exports; // module.exports is for Node.js
-        factory(target, require);
+        factory(target /*, require*/);
     } else if (typeof define === 'function' && define['amd']) {
         // [2] AMD anonymous module
         define(['exports', 'require'], factory);
@@ -3288,18 +3288,18 @@ ko.exportSymbol('bindingProvider', ko.bindingProvider);
         }
     }
 
-    function possiblyGetConfigFromAmd(errorCallback, config, callback) {
-        if (typeof config['require'] === 'string') {
-            // The config is the value of an AMD module
-            if (require || window['require']) {
-                (require || window['require'])([config['require']], callback);
-            } else {
-                errorCallback('Uses require, but no AMD loader is present');
-            }
-        } else {
-            callback(config);
-        }
-    }
+    // function possiblyGetConfigFromAmd(errorCallback, config, callback) {
+    //     if (typeof config['require'] === 'string') {
+    //         // The config is the value of an AMD module
+    //         if (require || window['require']) {
+    //             (require || window['require'])([config['require']], callback);
+    //         } else {
+    //             errorCallback('Uses require, but no AMD loader is present');
+    //         }
+    //     } else {
+    //         callback(config);
+    //     }
+    // }
 
     function makeErrorCallback(componentName) {
         return function (message) {
