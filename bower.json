@@ -4,5 +4,6 @@
   "main": "knockout.js",
   "scripts": [
     "knockout.js"
-  ]
+  ],
+  "ignore"        : [".md", "*.json"]
 }
